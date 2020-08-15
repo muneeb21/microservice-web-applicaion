@@ -5,7 +5,7 @@ const axios=require('axios');
 // functionality for new booking
 
 
-module.exports.register = async function(req, res)  {
+module.exports.newBooking = async function(req, res)  {
 	try {
         const  passedVariable  =req.query.valid;
         const{name1,name2,date,timeinHrs,timeinMins};
