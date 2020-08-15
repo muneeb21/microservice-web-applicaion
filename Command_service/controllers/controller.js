@@ -3,7 +3,7 @@
 // Register a new user
 module.exports.register = async function(req, res)  {
 	try {
-		const { name, surname } = req.body;
+		const { name, surname,email } = req.body;
 		
 
 		// Check if user is already Registered
@@ -14,7 +14,7 @@ module.exports.register = async function(req, res)  {
 			});
 		}
 
-        var x=name +"*"+surname;
+        var x=name +"*"+surname+"*"+email;
         var info = encodeURIComponent(x);
         //  Call the http req from Kyc service
 		 axios.get('http://localhost:5555/register'+ '/?valid='+info);
