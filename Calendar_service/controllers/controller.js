@@ -8,7 +8,8 @@ const axios=require('axios');
 module.exports.newBooking = async function(req, res)  {
 	try {
         const  passedVariable  =req.query.valid;
-        const{name1,name2,date,timeinHrs,timeinMins};
+        const name1="";
+        const name2="";const date="";const timeinHrs="";const timeinMins="";
         const j=0;
         for(let i=0;i<passedVariable.length;i++){
           if(passedVariable[i]==='*'){

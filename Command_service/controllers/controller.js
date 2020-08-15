@@ -84,7 +84,7 @@ module.exports.listing = async function(req, res)  {
 	try {
 		
 		// an http request to identity service to list all users
-		 axios.get('http://localhost:3000/listing'+ '/?valid='+info);
+		 axios.get('http://localhost:3000/listing');
 
 		
         return;
