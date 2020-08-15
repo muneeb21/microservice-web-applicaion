@@ -7,10 +7,10 @@ Tech Stack:- Nodejs, Express, MongoDb, Javascript
 
 **Microservices**
 
-> Identity Service 
-> Command Service
-> Calendar Service
-> Kyc Service
+> Identity Service<br>
+> Command Service<br>
+> Calendar Service<br>
+> Kyc Service<br>
 
 **Schemas(model)**
 
@@ -23,10 +23,10 @@ Tech Stack:- Nodejs, Express, MongoDb, Javascript
   
 **Routes**
 
-> /register
-> /check
-> /newbooking
-> /listing
+> /register<br>
+> /check<br>
+> /newbooking<br>
+> /listing<br>
 
 **Dependencies used**
 
