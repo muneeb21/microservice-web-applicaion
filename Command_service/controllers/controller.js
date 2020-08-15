@@ -38,3 +38,39 @@ module.exports.register = async function(req, res)  {
 		});
 	}
 }
+
+
+
+
+
+
+
+
+// New booking funtionality
+module.exports.newbooking = async function(req, res)  {
+	try { 
+
+		const { name1, name2,date,timeinHrs,timeinMins } = req.body;
+		
+
+		
+
+        var x=name1 +"*"+name2+"*"+date+"*"+timeinHrs+"*"+timeinMins;
+        var info = encodeURIComponent(x);
+        //  Call the http req from identity service to see availibility of names
+		 axios.get('http://localhost:3000/check'+ '/?valid='+info);
+
+		
+        return;
+		
+
+	
+	
+
+	} catch (err) {
+		console.log('********',err);
+		return res.status(500).json({
+			message: "Internal Server Error",
+		});
+	}
+}

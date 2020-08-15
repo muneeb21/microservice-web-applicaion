@@ -43,11 +43,7 @@ module.exports.register = async function(req, res)  {
 		
         //  Else register a new user
 		const newuser=await User.create( { name, email, password });
-
-		
-
-                
-        
+  
         
 		return res.status(200).json({
 			message: `Registration successful`
@@ -89,4 +85,62 @@ module.exports.listing = async function(req, res){
 		});
 
     }
+}
+
+
+
+
+
+// Function to check whether users exists or not;
+module.exports.checkUsers = async function(req, res)  {
+	try {
+        const  passedVariable  =req.query.valid;
+        const{name1,name2};
+        const j=0;
+        for(let i=0;i<passedVariable.length;i++){
+          if(passedVariable[i]==='*'){
+              j++;
+          }
+          else{
+              if(j==0){
+                  name+=passedVariable[i];
+              }
+              if(j==1){
+                surname+=passedVariable[i];
+            }
+           
+          }
+        }	
+		
+        let user1 = await User.findOne({name: name1});
+        let user2 = await User.findOne({name: name2});
+
+        // Check if any of the two users is already Registered
+        
+		if (!user1 || !user2) {
+			return res.status(200).json({
+				message:
+					"One of the entered names does not exits",
+			});
+		}
+       
+        // Both the users exists now check for booking
+ 
+       
+        var info = encodeURIComponent(passedVariable);
+      
+        //  Call the http req for Calendar service
+		 axios.get('http://localhost:8000/register'+ '/?valid='+info);
+
+		
+        return;
+			
+	
+
+	} catch (err) {
+		console.log('********',err);
+		return res.status(500).json({
+			message: "Internal Server Error",
+		});
+	}
 }
