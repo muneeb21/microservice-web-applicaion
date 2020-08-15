@@ -1,4 +1,4 @@
-
+const axios=require('axios');
 
 // Register a new user
 module.exports.register = async function(req, res)  {
@@ -66,6 +66,29 @@ module.exports.newbooking = async function(req, res)  {
 
 	
 	
+
+	} catch (err) {
+		console.log('********',err);
+		return res.status(500).json({
+			message: "Internal Server Error",
+		});
+	}
+}
+
+
+
+// Function for listing users
+
+
+module.exports.listing = async function(req, res)  {
+	try {
+		
+		// an http request to identity service to list all users
+		 axios.get('http://localhost:3000/listing'+ '/?valid='+info);
+
+		
+        return;
+			
 
 	} catch (err) {
 		console.log('********',err);

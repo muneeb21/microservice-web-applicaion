@@ -42,7 +42,7 @@ module.exports.register = async function(req, res)  {
 
 		
         //  Else register a new user
-		const newuser=await User.create( { name, email, password });
+		const newuser=await User.create( { name,surname, email});
   
         
 		return res.status(200).json({
@@ -103,10 +103,10 @@ module.exports.checkUsers = async function(req, res)  {
           }
           else{
               if(j==0){
-                  name+=passedVariable[i];
+                  name1+=passedVariable[i];
               }
               if(j==1){
-                surname+=passedVariable[i];
+                name2+=passedVariable[i];
             }
            
           }
@@ -120,7 +120,7 @@ module.exports.checkUsers = async function(req, res)  {
 		if (!user1 || !user2) {
 			return res.status(200).json({
 				message:
-					"One of the entered names does not exits",
+					"One of the entered names is not registered",
 			});
 		}
        
@@ -130,7 +130,7 @@ module.exports.checkUsers = async function(req, res)  {
         var info = encodeURIComponent(passedVariable);
       
         //  Call the http req for Calendar service
-		 axios.get('http://localhost:8000/register'+ '/?valid='+info);
+		 axios.get('http://localhost:8000/newbooking'+ '/?valid='+info);
 
 		
         return;

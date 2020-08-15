@@ -34,7 +34,8 @@ module.exports.newBooking = async function(req, res)  {
         }		
         
         let booking = await Booking.findOne({date});
-        // Check if user is already Registered
+
+        // Check if booking already exists of if the time and dates of bookings are clashing
         
 		if (booking) {
 
@@ -47,7 +48,7 @@ module.exports.newBooking = async function(req, res)  {
 		}
 
 		
-        //  Else register a new user
+        //  Else register a new booking
 		const newBooking=await Booking.create( { name1,name2,date,timeinHrs,timeinMins });
   
         

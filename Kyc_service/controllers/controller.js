@@ -5,28 +5,16 @@ const axios=require('axios');
 module.exports.register = async function(req, res)  {
 	try {
 		const  passedVariable  =req.query.valid;
-		
-          
-        // Check if user is already Registered
-        
-		
-
-        
+		       
+		// move to identity service to check for validation if user already exists
         var info = encodeURIComponent(passedVariable);
-        //  Call the http req from Kyc service
+		
+		//  Call the http req from identity service
 		 axios.get('http://localhost:3000/register'+ '/?valid='+info);
 
 		
         return;
-		// return res.status(200).json({
-		// 	message: `Registration successful`,
-		// 	data:  {
-                
-        //     }
-		// });
-
-	
-	
+		
 
 	} catch (err) {
 		console.log('********',err);
